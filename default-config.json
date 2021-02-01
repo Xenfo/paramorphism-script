@@ -1,0 +1,56 @@
+{
+    "input": "",
+    "output": "",
+    "libraries": [
+    ],
+    "mask": {
+      "include": [
+      ],
+      "exclude": [
+      ]
+    },
+    "remapper": {
+      "prefix": "",
+      "flat": false,
+      "name_generation": {
+        "dictionaries": {
+          "packages": "lookalikes",
+          "fields": "alphabet",
+          "methods": "java_keywords",
+          "classes": "java_keywords"
+        }
+      }
+    },
+    "spigot_remap_plugin_yml": {
+      "enabled": false
+    },
+    "packer": {
+      "enabled":false
+    },
+    "null_byte_naming": {
+      "enabled": false
+    },
+    "branding": false,
+    "disable_progress_bars": false,
+    "force_no_verify": {
+      "enabled": false
+    },
+    "method_indirection": {
+      "enabled": false
+    },
+    "local_variable_stripping": {
+      "enabled": false
+    },
+    "line_number_stripping": {
+      "enabled": false
+    },
+    "deeply_nested_class_injection": {
+      "enabled": false
+    },
+    "jump_replacement": {
+      "enabled": false
+    },
+    "string_concealing": {
+      "enabled": false
+    }
+  }
