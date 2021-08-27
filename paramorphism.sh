@@ -5,7 +5,7 @@ asUser() {
 }
 
 obf() {
-    project=$(jq --arg name "$1" -r '.[$name]' projects.json)
+    project=$(jq --arg name "$1" -r '.[$name]' ~/.para/projects.json)
 
     if [ "$project" == "null" ]; then
         echo "Please provide a valid project name. Try using: paramorphism add <name> <directory>"
@@ -51,28 +51,37 @@ install() {
 
     if [ ! -d "${HOME}/.para" ]; then
         echo "Creating script home."
+        echo
 
         mkdir "${HOME}/.para"
         touch "${HOME}/.para/projects.json"
 
-        wget https://raw.githubusercontent.com/Xenfo/paramorphism-script/main/sent-env.sh -P "$pwd" -q
-        source "set-env.sh"
-
         # TODO: ask if YML or JSON
         wget https://raw.githubusercontent.com/Xenfo/paramorphism-script/main/default-config.json -P "${HOME}/.para" -q
+
+        echo >>"${HOME}/.bashrc"
+        echo "export PATH=\$PATH:$HOME/.para" >>"${HOME}/.bashrc"
+        echo "=> Please restart your terminal or run the following:"
+        echo
+        echo "export PATH=$PATH:$HOME/.para"
         echo "--------------------------------------------"
     else
         echo "Script home is already made, skipping..."
         echo "--------------------------------------------"
     fi
 
+    echo "Configuring..."
+    echo "--------------------------------------------"    
+
     echo "Finished installing!"
     echo "--------------------------------------------"
+
+    mv ./paramorphism.sh "$HOME/.para/paramorphism"
 }
 
-# uninstall() {
-
-# }
+uninstall() {
+    rm -r "/home/xenfo/.para"
+}
 
 # repair() {
 
